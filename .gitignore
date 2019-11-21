@@ -1,2 +1,5 @@
 target/
 *.cfg
+.idea/
+test/benchmarks
+test/blog-post-streams.iml

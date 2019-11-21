@@ -78,6 +78,11 @@ public class Streams {
   public int scrabble() {
     return JavaScrabble.run();
   }
+
+  @Benchmark
+  public long countUppercase(){
+    return CountUppercase.run();
+  }
 }
 
 
