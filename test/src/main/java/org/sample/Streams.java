@@ -83,6 +83,16 @@ public class Streams {
   public long countUppercase(){
     return CountUppercase.run();
   }
+
+  @Benchmark
+  public long blender() {
+    return Blender.run();
+  }
+
+  @Benchmark
+  public double tpch6() {
+    return ArrowTPCH.run();
+  }
 }
 
 
