@@ -6,9 +6,9 @@ import org.bdapro.others.Blender;
 import org.bdapro.others.CountUppercase;
 import org.bdapro.others.JavaScrabble;
 import org.bdapro.tpch.ArrowTPCH;
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.*;
+
+import java.io.IOException;
 
 import static org.bdapro.others.StandardDeviation.computeStandardDeviation;
 
@@ -39,9 +39,17 @@ public class BenchmarkExecutor {
         return Blender.run();
     }
 
-    @Benchmark
+    @Param({"lineitem1k.arrow","lineitem10k.arrow"})
+    public String lineItemFilePath;
+
+    @Benchmark @BenchmarkMode(Mode.AverageTime)
     public double tpch6() {
-        return ArrowTPCH.run();
+        try {
+            return ArrowTPCH.executeQuerySix(lineItemFilePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     @Benchmark
