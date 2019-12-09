@@ -1,4 +1,4 @@
-package org.sample;
+package org.bdapro.others;
 
 public class Blender {
 
