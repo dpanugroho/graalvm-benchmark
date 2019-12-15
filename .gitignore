@@ -5,3 +5,5 @@ benchmark-java/benchmarks
 test/blog-post-streams.iml
 
 benchmark-java/jmh-result*
+
+.DS_Store
