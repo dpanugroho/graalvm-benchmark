@@ -38,10 +38,10 @@ public class ArrowTPCH {
                 throw new IOException("Expected to read record batch");
             }
             // Get columns based on column order on TPC-H LineItem table
-            BigIntVector lQuantity = (BigIntVector) root.getFieldVectors().get(4);
-            Float8Vector lExtendedPrice = (Float8Vector) root.getFieldVectors().get(5);
-            Float8Vector lDiscount = (Float8Vector) root.getFieldVectors().get(6);
-            TimeStampSecVector lShipDate = (TimeStampSecVector) root.getFieldVectors().get(10);
+            BigIntVector lQuantity = (BigIntVector) root.getVector(4);
+            Float8Vector lExtendedPrice = (Float8Vector) root.getVector(5);
+            Float8Vector lDiscount = (Float8Vector) root.getVector(6);
+            TimeStampSecVector lShipDate = (TimeStampSecVector) root.getVector(10);
 
             //Todo: Check if lQuantity, lPrice, lDiscount, and lShidate have the same size
             double currentBlockRevenue = 0.0;
