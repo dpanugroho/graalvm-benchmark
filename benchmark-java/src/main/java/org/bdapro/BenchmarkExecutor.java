@@ -39,19 +39,6 @@ public class BenchmarkExecutor {
         return Blender.run();
     }
 
-    @Param({"lineitem10.arrow","lineitem30.arrow","lineitem100.arrow","lineitem300.arrow","lineitem1k.arrow","lineitem3k.arrow","lineitem10k.arrow","lineitem30k.arrow"})
-    public String lineItemFilePath;
-
-    @Benchmark @BenchmarkMode(Mode.Throughput)
-    public double tpch6() {
-        try {
-            return ArrowTPCH.executeQuerySix(lineItemFilePath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
-
     @Benchmark
     public double standardDeviation() {
         return computeStandardDeviation(numbers);
